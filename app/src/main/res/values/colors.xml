@@ -6,4 +6,11 @@
     <color name="primary">#FF5722</color>
     <color name="background">#54673AB7</color>
 
+    <color name="imcUnderweight">#006FFF</color>
+    <color name="imcOverweight">#FFC107</color>
+    <color name="imcNormalweight">#8BC34A</color>
+    <color name="imcObesity1weight">#FF9800</color>
+    <color name="imcObesity2weight">#FF5722</color>
+    <color name="imcObesity3weight">#F44336</color>
+
 </resources>

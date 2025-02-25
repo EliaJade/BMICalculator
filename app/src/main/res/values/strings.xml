@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">BMICalculator</string>
+
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+
+    <string name="imcUnderweight">Underweight</string>
+    <string name="imcOverweight">Overweight</string>
+    <string name="imcNormalweight">Normal</string>
+    <string name="imcObesity1weight">Obese</string>
+    <string name="imcObesity2weight">Extremely Obese</string>
+    <string name="imcObesity3weight">More than Extremely Obese</string>
+
 </resources>
