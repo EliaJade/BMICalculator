@@ -12,8 +12,11 @@ import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var heightEditText: EditText
-    lateinit var  weightEditText: EditText
+    lateinit var heightSlider: EditText
+    lateinit var heightTextView: TextView
+    lateinit var weightAddButton: Button
+    lateinit var  weightTextView: TextView
+    lateinit var weightMinusButton: Button
     lateinit var calculatorButton: Button
     lateinit var resultTextView: TextView
 
@@ -29,13 +32,24 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        heightEditText = findViewById(R.id.heightEditText)
-        weightEditText = findViewById(R.id.weightEditText)
+        heightSlider = findViewById(R.id.heightSlider)
+        heightTextView = findViewById((R.id.heightSlider))
+
+        weightTextView = findViewById(R.id.weightTextView)
+        weightAddButton = findViewById(R.id.weightAddButton)
+        weightMinusButton = findViewById(R.id.weightMinusButton)
+
+
         calculatorButton = findViewById(R.id.calculateButton)
         resultTextView = findViewById(R.id.resultTextView)
 
-        heightEditText.setText("180")
-        weightEditText.setText("70")
+
+        heightSlider.addOnChangeListener {slider, value, fromUser ->
+            heightTextView.text = "${value.toInt()}"
+        }
+
+        //heightEditText.setText("180")
+        //weightEditText.setText("70")
 
         calculatorButton.setOnClickListener {
             val height = heightEditText.text.toString().toFloat()
