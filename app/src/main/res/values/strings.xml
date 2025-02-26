@@ -7,8 +7,11 @@
     <string name="imcUnderweight">Underweight</string>
     <string name="imcOverweight">Overweight</string>
     <string name="imcNormalweight">Normal</string>
-    <string name="imcObesity1weight">Obese</string>
-    <string name="imcObesity2weight">Extremely Obese</string>
-    <string name="imcObesity3weight">More than Extremely Obese</string>
+    <string name="imcObesity1weight">Class I Obesity</string>
+    <string name="imcObesity2weight">Class II Obesity</string>
+    <string name="imcObesity3weight">Class III Obesity</string>
 
+    <string name="obesity_alert_title">Health Risk</string>
+    <string name="obesity_alert_message">Your BMI shows a posible risk to your health, would you like some recommendations on what to do?</string>
+    <string name="obesity_alert_button">Show recommendations</string>
 </resources>
