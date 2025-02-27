@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var weightMinusButton: Button
 
     lateinit var calculatorButton: Button
+    lateinit var recalculateButton: Button
     lateinit var resultTextView: TextView
 
     lateinit var descriptionTextView: TextView
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         resultCardView = findViewById(R.id.resultCardView)
 
         calculatorButton = findViewById(R.id.calculateButton)
+        recalculateButton = findViewById(R.id.recalculateButton)
         resultTextView = findViewById(R.id.resultTextView)
 
         descriptionTextView = findViewById(R.id.descriptionTextView)
@@ -92,6 +94,61 @@ class MainActivity : AppCompatActivity() {
         calculatorButton.setOnClickListener {
 
             resultCardView.visibility = View.VISIBLE
+            calculatorButton.visibility = View.GONE
+            recalculateButton.visibility = View.VISIBLE
+
+            val result = weight / (height / 100).pow(2)
+
+
+            //resultTextView.text = "$result"
+            resultTextView.text = String.format(Locale.getDefault(), "%.2f", result)
+
+            var colorId = 0
+            var textId = 0
+            when (result) {
+                in 0f..18.5f -> {
+                    colorId = R.color.imcUnderweight
+                    textId = R.string.imcUnderweight
+                }
+
+                in 18.5f..<25f -> {
+                    colorId = R.color.imcNormalweight
+                    textId = R.string.imcNormalweight
+                }
+
+                in 25f..<30f -> {
+                    colorId = R.color.imcOverweight
+                    textId = R.string.imcOverweight
+                }
+
+                in 30f..<35f -> {
+                    colorId = R.color.imcObesity1weight
+                    textId = R.string.imcObesity1weight
+                    ObesityDialogue()
+                }
+
+                in 35f..<40f -> {
+                    colorId = R.color.imcObesity2weight
+                    textId = R.string.imcObesity2weight
+                    ObesityDialogue()
+                }
+
+                else -> {
+                    colorId = R.color.imcObesity3weight
+                    textId = R.string.imcObesity3weight
+                    ObesityDialogue()
+                }
+
+            }
+
+            resultTextView.setTextColor(getColor(colorId))
+            descriptionTextView.text = getString(textId)
+
+
+        }
+
+        recalculateButton.setOnClickListener {
+
 
             val result = weight / (height / 100).pow(2)
 
@@ -135,13 +192,11 @@ class MainActivity : AppCompatActivity() {
                     ObesityDialogue()
                 }
             }
-
-            resultTextView.setTextColor(getColor(colorId))
-            descriptionTextView.text = getString(textId)
-
-
         }
     }
+
+
+
 
     fun ObesityDialogue() {
         AlertDialog.Builder(this)
